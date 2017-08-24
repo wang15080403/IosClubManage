@@ -1,0 +1,137 @@
+﻿@model IosClubManage.MVC.Models.SupplieApply
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<h2>删除耗材申请</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>SupplieApply</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Supplies.SuppliesName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Supplies.SuppliesName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplyNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplyNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumUnit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumUnit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplyDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplyDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplyDepart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplyDepart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Departhead)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Departhead)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Remarks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsActive)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.IsDelete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsDelete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdateOdn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdateOdn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedBy)
+        </dd>*@
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="删除" class="btn btn-default" /> |
+            @Html.ActionLink("返回列表", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,118 @@
+﻿@using PagedList.Mvc;
+@*@model IEnumerable<IosClubManage.MVC.Models.SuppliesRecord>*@
+@model PagedList.IPagedList<IosClubManage.MVC.Models.SuppliesRecord>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<h2>耗材领用记录列表</h2>
+
+<p>
+    @Html.ActionLink("新增", "Create")
+</p>
+<div>
+    @using (Html.BeginForm())
+    {
+
+        @Html.DropDownList("Name", null, "===请选择用户姓名===")
+        @*@Html.TextBox("keywords")*@
+        <input type="submit" value="搜索" />
+    }
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Single().Supplies.SuppliesName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Single().User.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Single().RecordId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Single().UseNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Single().NumUnit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Single().UseDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Single().Remarks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Single().IsActive)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.IsDelete)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedOn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateOdn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdatedBy)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Supplies.SuppliesName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecordId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UseNum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumUnit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UseDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Remarks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.IsDelete)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedOn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdateOdn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedBy)
+        </td>*@
+        <td>
+            @Html.ActionLink("编辑", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("详细", "Details", new { id=item.Id }) |
+            @Html.ActionLink("删除", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+@Html.PagedListPager(Model, pageIndex => Url.Action("Index", new { pageIndex, @*KeyWords = ViewBag.KeyWords,*@ Name = ViewBag.Name }))

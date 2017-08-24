@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    @Styles.Render("~/css/bootstrap.css")
+    <!-- FONTAWESOME STYLES-->
+    @Styles.Render("~/css/font-awesome.css")
+    <!-- CUSTOM STYLES-->
+    @Styles.Render("~/css/custom.css")
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+
+</head>
+<body>
+    @*<form id="form1">*@
+
+    <div id="wrapper">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="adjust-nav">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><i class="fa fa-square-o "></i>苹果俱乐部管理系统</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                       
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- /. NAV TOP  -->
+    <nav class="navbar-default navbar-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav" id="main-menu">
+                <li class="text-center user-image-back">
+                    @*<img src="~/images/hy1.jpg" class="img-responsive" />*@
+                </li>
+                <li>
+                    @*<a href="~/Views/Home/Index.cshtml"><i class="fa fa-desktop "></i>首页</a>*@
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-edit "></i>😀系统管理<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>@Html.ActionLink("项目来源", "Index", "Source")</li>
+                        <li>@Html.ActionLink("项目类别", "Index", "Category")</li>
+                        <li>@Html.ActionLink("部门", "Index", "Department")</li>
+                        <li>@Html.ActionLink("仓库", "Index", "Warehouse")</li>
+                        <li>@Html.ActionLink("角色", "Index", "Role")</li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-edit "></i>😀人员管理<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>@Html.ActionLink("用户", "Index", "User")</li>
+                        <li>@Html.ActionLink("用户注册", "Create", "User")</li>
+                        <li>@Html.ActionLink("修改密码", "ModifyPwd", "User")</li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-edit "></i>😀项目管理<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>@Html.ActionLink("项目", "Index", "Project")</li>
+                        <li>@Html.ActionLink("新增项目", "Create", "Project")</li>
+                        <li>@Html.ActionLink("我的项目列表", "MyProjectsIndex", "Project")</li>
+                        <li>@Html.ActionLink("项目统计报表", "Report", "Project")</li>
+                     </ul>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-edit "></i>😀设备管理<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>@Html.ActionLink("设备", "Index", "Equipment")</li>
+                        <li>@Html.ActionLink("新增设备", "Create", "Equipment")</li>
+                        <li>@Html.ActionLink("设备使用记录", "Index", "EquipmentRecord")</li>
+                        <li>@Html.ActionLink("新增设备使用记录", "Create", "EquipmentRecord")</li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-edit "></i>😀耗材管理<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>@Html.ActionLink("耗材", "Index", "Supplies")</li>
+                        <li>@Html.ActionLink("新增耗材", "Create", "Supplies")</li>
+                        <li>@Html.ActionLink("耗材分类", "Index", "SuppliesCategory")</li>
+                        <li>@Html.ActionLink("新增耗材分类", "Create", "SuppliesCategory")</li>
+                        <li>@Html.ActionLink("耗材领用记录", "Index", "SuppliesRecord")</li>
+                        <li>@Html.ActionLink("新增耗材领用记录", "Create", "SuppliesRecord")</li>
+                        <li>@Html.ActionLink("耗材领用申请", "Index", "SupplieApply")</li>
+                        <li>@Html.ActionLink("新增耗材领用申请", "Create", "SupplieApply")</li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-edit "></i>😀图书资料管理<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>@Html.ActionLink("图书资料", "Index", "Book")</li>
+                        <li>@Html.ActionLink("新增图书资料", "Create", "Book")</li>
+                        <li>@Html.ActionLink("图书借阅记录", "Index", "BookBorrowRecord")</li>
+                        <li>@Html.ActionLink("新增图书借阅记录", "Create", "BookBorrowRecord")</li>
+                        <li>@Html.ActionLink("图书分类", "Index", "BookCategory")</li>
+                        <li>@Html.ActionLink("新增图书分类", "Create", "BookCategory")</li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-edit "></i>😀资金管理<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>@Html.ActionLink("资金科目", "Index", "Capital")</li>
+                        <li>@Html.ActionLink("新增资金科目", "Create", "Capital")</li>
+                        <li>@Html.ActionLink("资金流水", "Index", "Capitalflow")</li>
+                        <li>@Html.ActionLink("新增资金流水", "Create", "Capitalflow")</li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-edit "></i>😀数据报表<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        @*<li>@Html.ActionLink("资金科目", "Index", "Capital")</li>
+                        <li>@Html.ActionLink("新增资金科目", "Create", "Capital")</li>
+                        <li>@Html.ActionLink("资金流水", "Index", "Capitalflow")</li>
+                        <li>@Html.ActionLink("新增资金流水", "Create", "Capitalflow")</li>*@
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+    <!-- /. NAV SIDE  -->
+    <div id="page-wrapper">
+        <div id="page-inner">
+            <div class="row">
+                <div class="col-md-12">
+                    @{Html.RenderAction("LoginPartial", "User");}
+                    <div class="main_center">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+            <!-- /. ROW  -->
+            <hr />
+            <!-- /. ROW  -->
+        </div>
+    </div>
+    <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    @Scripts.Render("~/js/jquery-1.10.2.js")
+    <!-- BOOTSTRAP SCRIPTS -->
+    @Scripts.Render("~/js/bootstrap.min.js")
+    <!-- METISMENU SCRIPTS -->
+    @Scripts.Render("~/js/jquery.metisMenu.js")
+    <!-- CUSTOM SCRIPTS -->
+    @Scripts.Render("~/js/custom.js")
+    @*</form>*@
+</body>
+</html>

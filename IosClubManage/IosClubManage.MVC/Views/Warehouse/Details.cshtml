@@ -1,0 +1,131 @@
+﻿@model IosClubManage.MVC.Models.Warehouse
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<h2>仓库详细</h2>
+
+<div>
+    <h4>Warehouse</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.User.UserCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.UserCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WarehouseCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WarehouseCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WarehouseName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WarehouseName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WarehProduct)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WarehProduct)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Invequantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Invequantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Storagelocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Storagelocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Storagetime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Storagetime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Remarks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsActive)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.IsDelete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsDelete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdateOdn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdateOdn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedBy)
+        </dd>*@
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("编辑", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("返回列表", "Index")
+</p>

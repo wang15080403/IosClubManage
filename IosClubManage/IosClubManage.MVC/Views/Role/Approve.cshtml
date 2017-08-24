@@ -1,0 +1,95 @@
+﻿@model IosClubManage.MVC.Models.Role
+
+@{
+    ViewBag.Title = "Approve";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<h2>Approve</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>当前已授权 @Model.Users.Count() 人</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RoleName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RoleName, new { htmlAttributes = new { @class = "form-control", @readonly = true } })
+                @Html.ValidationMessageFor(model => model.RoleName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Remark, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Remark, new { htmlAttributes = new { @class = "form-control", @readonly = true } })
+                @Html.ValidationMessageFor(model => model.Remark, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="control-label col-md-2">
+                授权用户
+            </label>
+            <div class="col-md-8">
+                <table class="table table-striped table-bordered table-hover" id="datatable_list">
+                    <thead>
+                        <tr role="row" class="heading">
+                            <th>
+                                部门名称
+                            </th>
+                            <th>
+                                授权用户
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (IosClubManage.MVC.Models.Department department in ViewBag.Departments)
+                        {
+                            <tr>
+                                <td width="20%">
+                                    @department.DepartName
+                                </td>
+                                <td>
+                                    @foreach (IosClubManage.MVC.Models.User user in department.Users.OrderBy(p => p.UserCode))
+                                    {
+                                        var fullName = string.Format("{0}({1})", user.Name, user.UserCode);
+                                        if (Model.Users.Where(p => p.Id == user.Id).Count() > 0)
+                                        {
+                                            <input type="checkbox" name="RoleUsers" class="checkboxes" checked value="@user.Id">@fullName
+
+                                        }
+                                        else
+                                        {
+                                            
+                                            <input type="checkbox" name="RoleUsers" class="checkboxes" value="@user.Id">@fullName
+                                        }
+                                    }
+                                </td>
+                            </tr>
+
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="确认授权" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("返回列表", "Index")
+</div>
+

@@ -1,0 +1,31 @@
+﻿@model IosClubManage.MVC.Models.User
+
+@{
+    Layout = null;
+}
+
+<ul id="main-menu" class="nav navbar-nav navbar-right">
+    <li class="dropdown hidden-xs">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <span class="" padding-right-small" style="position:relative;top: 3px;"></span>
+
+            @Model.Name
+            (@Model.UserCode)
+
+        </a>
+        <ul class="dropdown-menu">
+            <li>@Html.ActionLink("个人信息", "Create", "User")</li>
+            <li class="divider"></li>
+            <li>
+                @Html.ActionLink("修改密码", "ModifyPwd", "User")
+            </li>
+            <li class="divider"></li>
+            <li>
+                @Html.ActionLink("注销", "LoginOut", "User")
+            </li>
+        </ul>
+    </li>
+</ul>
+
+
+

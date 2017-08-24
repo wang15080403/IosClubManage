@@ -1,0 +1,62 @@
+﻿@model IEnumerable<IosClubManage.MVC.ViewModels.VMReport>
+@{
+    ViewBag.Title = "Report";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<h2>项目统计报表</h2>
+
+@*<p>
+    @Html.ActionLink("新增", "Create")
+</p>*@
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.DropDownList("condition", null, "==请选择==");
+        <input type="submit" value="搜索">
+    }
+
+</div>
+<table class="table">
+    <tr>
+        <th>
+            统计条件(@ViewBag.ConditionName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectsIsApproved)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectsIsKnot)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectsIsStop)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Condition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectsIsApproved)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectsIsKnot)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectsIsStop)
+            </td>
+        </tr>
+    }
+
+</table>

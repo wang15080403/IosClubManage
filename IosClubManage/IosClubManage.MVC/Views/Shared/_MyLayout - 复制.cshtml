@@ -1,0 +1,71 @@
+﻿
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head >
+    @Styles.Render("~/css/bootstrap.css")
+    <!-- FONTAWESOME STYLES-->
+    @Styles.Render("~/css/font-awesome.css")
+    <!-- CUSTOM STYLES-->
+    @Styles.Render("~/css/custom.css")
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+   
+</head>
+<body>
+    @*<form id="form1">*@
+
+        <div id="wrapper">
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="adjust-nav">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"><i class="fa fa-square-o "></i>苹果俱乐部管理系统</a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav navbar-right">                         
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- /. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            
+        </nav>
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper">
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="main_center">
+                            @RenderBody()
+                        </div>
+                    </div>
+                </div>
+                <!-- /. ROW  -->
+                <hr />
+                <!-- /. ROW  -->
+            </div>
+        </div>
+        <!-- /. WRAPPER  -->
+        <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+        <!-- JQUERY SCRIPTS -->
+        @Scripts.Render("~/js/jquery-1.10.2.js")
+        <!-- BOOTSTRAP SCRIPTS -->
+        @Scripts.Render("~/js/bootstrap.min.js")      
+        <!-- METISMENU SCRIPTS -->
+        @Scripts.Render("~/js/jquery.metisMenu.js")
+        <!-- CUSTOM SCRIPTS -->
+        @Scripts.Render("~/js/custom.js")
+    @*</form>*@
+</body>
+</html>

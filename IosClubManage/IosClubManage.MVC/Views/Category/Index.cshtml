@@ -1,0 +1,73 @@
+﻿@model IEnumerable<IosClubManage.MVC.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<h2>项目类别列表</h2>
+
+<p>
+    @Html.ActionLink("新增", "Create")
+</p>
+<table class="table table-striped table-bordered table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </th>
+        <th>
+            所属上级分类
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Where(p => p.NodeLevel == 0))
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                —
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.ActionLink("编辑", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("详细", "Details", new { id = item.Id }) |
+                @Html.ActionLink("删除", "Delete", new { id = item.Id }) |
+                @Html.ActionLink("添加子项", "Create", new { id = item.Id })
+            </td>
+        </tr>
+
+        if (item.ChildCates.Count() != 0)
+        {
+            foreach (var childItem in item.ChildCates)
+            {
+                <tr>
+                    <td>
+                        &nbsp&nbsp&nbsp&nbsp|—
+                        @Html.DisplayFor(modelItem => childItem.CategoryName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CategoryName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => childItem.IsActive)
+                    </td>
+                    <td>
+                        @Html.ActionLink("编辑", "Edit", new { id = childItem.Id }) |
+                        @Html.ActionLink("详细", "Details", new { id = childItem.Id }) |
+                        @Html.ActionLink("删除", "Delete", new { id = childItem.Id })
+                    </td>
+                </tr>
+            }
+        }
+    }
+
+</table>

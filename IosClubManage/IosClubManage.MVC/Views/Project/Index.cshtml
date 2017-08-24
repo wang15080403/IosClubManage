@@ -1,0 +1,168 @@
+﻿@using PagedList.Mvc;
+@*@model IEnumerable<IosClubManage.MVC.Models.Project>*@
+@model PagedList.IPagedList<IosClubManage.MVC.Models.Project>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<h2>项目列表</h2>
+
+<p>
+    @Html.ActionLink("新增", "Create")
+</p>
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.DropDownList("ProjectStatus", null, "==请选择==");
+        @Html.DropDownList("cateId", null, "==请选择类别==");
+        @Html.TextBox("keywords" )
+        <input type="submit" value="搜索" />
+    }
+
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Single().Category.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Single().Department.DepartCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Single().Source.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Single().ProjectCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Single().ProjectName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Single().UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Single().ProjectAmmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Single().Remarks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Single().IsApproval)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Single().ApprovalTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Single().PlanKnotTime)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Single().IsKnot)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Single().KnotTime)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Single().IsStop)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Single().StopTime)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Single().IsActive)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.IsDelete)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedOn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateOdn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdatedBy)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Department.DepartCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Source.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectAmmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Remarks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsApproval)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.ApprovalTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlanKnotTime)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.IsKnot)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.KnotTime)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.IsStop)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.StopTime)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.IsDelete)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedOn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdateOdn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedBy)
+        </td>*@
+        <td>
+            @Html.ActionLink("编辑", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("详细", "Details", new { id=item.Id }) |
+            @Html.ActionLink("删除", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+@Html.PagedListPager(Model, pageIndex => Url.Action("Index", new { pageIndex, keywords = ViewBag.keywords, cateId = ViewBag.cateId }));
+

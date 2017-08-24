@@ -1,0 +1,112 @@
+﻿@model IEnumerable<IosClubManage.MVC.Models.Warehouse>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<h2>仓库列表</h2>
+
+<p>
+    @Html.ActionLink("新增", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.User.UserCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WarehouseCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WarehouseName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WarehProduct)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Invequantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Storagelocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Storagetime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.IsDelete)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedOn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateOdn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdatedBy)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.UserCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WarehouseCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WarehouseName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WarehProduct)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Invequantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Storagelocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Storagetime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Remarks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.IsDelete)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedOn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdateOdn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedBy)
+        </td>*@
+        <td>
+            @Html.ActionLink("编辑", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("详细", "Details", new { id=item.Id }) |
+            @Html.ActionLink("删除", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
